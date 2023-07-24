@@ -1,88 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Password Tester</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding-top: 100px;
-        }
-
-        h1 {
-            font-size: 24px;
-        }
-
-        input[type="password"] {
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        .result.valid {
-            color: green;
-        }
-
-        .result.invalid {
-            color: red;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1093259520492445697/1104778107568791652/Skull_1.png?width=427&height=427">
+    <title>Local Business Directory</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <h1>Password Tester</h1>
-    <input type="password" id="passwordInput" placeholder="Enter your password">
-    <button onclick="testPassword()">Test Password</button>
-    <div class="result" id="resultContainer"></div>
+    <header>
+        <h1>Local Business Directory</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button type="button" onclick="searchBusiness()">Search</button>
+        </div>
+    </header>
 
+    <div class="submit-job-link">
+        <a href="submit_job.html">Submit Your Job Ad</a>
+    </div>
+
+    <div class="business-listings-container">
+        <h2>Business Listings</h2>
+        <div id="business-listings">
+            <!-- Individual business listings will be dynamically added here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
     <script>
-        function testPassword() {
-            var password = document.getElementById("passwordInput").value;
-            var resultContainer = document.getElementById("resultContainer");
-            
-            // Define the rules for a valid password
-            var minLength = 8;
-            var maxLength = 20;
-            var hasUppercase = /[A-Z]/.test(password);
-            var hasLowercase = /[a-z]/.test(password);
-            var hasNumber = /[0-9]/.test(password);
-            var hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password);
-
-            // Perform the password validation
-            if (password.length < minLength || password.length > maxLength) {
-                resultContainer.textContent = "Password must be between " + minLength + " and " + maxLength + " characters long.";
-                resultContainer.className = "result invalid";
-            } else if (!hasUppercase) {
-                resultContainer.textContent = "Password must contain at least one uppercase letter.";
-                resultContainer.className = "result invalid";
-            } else if (!hasLowercase) {
-                resultContainer.textContent = "Password must contain at least one lowercase letter.";
-                resultContainer.className = "result invalid";
-            } else if (!hasNumber) {
-                resultContainer.textContent = "Password must contain at least one number.";
-                resultContainer.className = "result invalid";
-            } else if (!hasSpecialChar) {
-                resultContainer.textContent = "Password must contain at least one special character.";
-                resultContainer.className = "result invalid";
-            } else {
-                resultContainer.textContent = "Password is valid!";
-                resultContainer.className = "result valid";
-            }
-        }
+        // Call the function to display the initial business listings when the page loads
+        window.onload = function () {
+            displayBusinessListings(getBusinesses()); // Load businesses from localStorage
+        };
     </script>
 </body>
 </html>
