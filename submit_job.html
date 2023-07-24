@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1093259520492445697/1104778107568791652/Skull_1.png?width=427&height=427">
+    <title>Submit Job Ad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Local Business Directory</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <!-- Add more navigation links if needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="job-ad-form" id="jobAdForm">
+        <h2>Submit Your Job Ad</h2>
+        <form id="jobAdSubmitForm">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" required>
+
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" required>
+
+            <label for="jobCategory">Category:</label>
+            <select id="jobCategory" required>
+                <option value="">Select a category</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Gym">Gym</option>
+                <option value="IT">IT</option>
+                <option value="Healthcare">Healthcare</option>
+                <!-- Add more categories as needed -->
+            </select>
+
+            <label for="jobDescription">Job Description:</label>
+            <textarea id="jobDescription" rows="4" required></textarea>
+
+            <label for="contactInfo">Contact Information:</label>
+            <input type="text" id="contactInfo" required>
+
+            <button type="submit">Submit Ad</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
