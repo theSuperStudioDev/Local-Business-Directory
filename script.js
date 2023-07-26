@@ -39,7 +39,14 @@ function searchBusiness() {
             business.address.toLowerCase().includes(searchInput)
         );
     });
-
+// JavaScript
+// Add event listener to handle job ad submission
+document.addEventListener('DOMContentLoaded', function () {
+    const jobAdForm = document.getElementById('jobAdSubmitForm');
+    if (jobAdForm) {
+        jobAdForm.addEventListener('submit', submitJobAd);
+    }
+});
     // Display the filtered results
     displayBusinessListings(filteredBusinesses);
 }
@@ -126,8 +133,12 @@ function submitJobAd(event) {
     // Reset the form fields after submission
     document.getElementById('jobAdSubmitForm').reset();
 }
+document.addEventListener('DOMContentLoaded', function () {
 
 // Add event listener to handle job ad submission
 const jobAdForm = document.getElementById('jobAdSubmitForm');
 jobAdForm.addEventListener('submit', submitJobAd);
-
+});
+function submitJobAd(event) {
+    event.preventDefault();
+}
